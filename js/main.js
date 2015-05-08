@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', _init);
 
 function _init() {
     // check if supported
-    if (window.File && window.FileReader && window.FileList && window.Blob) {
+    if (window.File != null && window.FileReader && window.FileList && window.Blob) {
         document.getElementById('capture').addEventListener('change', readFileContent, false);
     } else {
         alert('The File APIs are not fully supported in this browser.');
@@ -27,7 +27,7 @@ function _init() {
 var base64Str = null;
 var currentLocation = null;
 
-var readFileContent = function (pEvt) {
+var readFileContent = function(pEvt) {
 
     var files = pEvt.target.files;
     var file = files[0];
@@ -49,7 +49,7 @@ var readFileContent = function (pEvt) {
     }
 };
 
-var getPosition = function (pPosition) {
+var getPosition = function(pPosition) {
     currentLocation = pPosition;
 
     // display on a map
